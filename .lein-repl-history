@@ -1,0 +1,500 @@
+    [0 0 0 0 0]
+    (let [svals (into [] (sort vals)) med (median svals)]
+      [(first svals)
+       (median (filterv (fn [i] (< i med)) svals))
+       med
+       (median (filterv (fn [i] (> i med)) svals))
+       (last svals)])))
+(get-all-exchange-rates 4)
+(sort [])
+(median [])
+(empty? [])
+(get-ratios '())
+(into [] [])
+(get-all-exchange-rates 4)
+(defn get-all-exchange-rates "orb is a number [1:25]" [orb]
+  (let [other-orbs (sort (into (range 1 orb) (range (+ orb 1) 26)))]
+    (doseq [other other-orbs]
+      (spit (str "resources/public/data/want-" orb ".txt") (get-quartiles orb other) :append true)
+      (spit (str "resources/public/data/have-" orb ".txt") (get-quartiles other orb) :append true))))
+(defn quartile "min, 1st, median, 3rd, max"  [vals]
+  (if (empty? vals)
+    [0 0 0 0 0]
+    (let [svals (into [] (map float (sort vals))) med (median svals)]
+      [(first svals)
+       (median (filterv (fn [i] (< i med)) svals))
+       med
+       (median (filterv (fn [i] (> i med)) svals))
+       (last svals)])))
+(get-all-exchange-rates 4)
+(defn quartile "min, 1st, median, 3rd, max"  [vals]
+  (if (empty? vals)
+    [0 0 0 0 0]
+    (let [svals (into [] (sort vals)) med (median svals)]
+      [(first svals)
+       (median (filterv (fn [i] (< i med)) svals))
+       med
+       (median (filterv (fn [i] (> i med)) svals))
+       (last svals)])))
+(get-all-exchange-rates 4)
+(spit "resources/public/data/want-4.txt" "\n")
+(get-all-exchange-rates 4)
+(defn get-all-exchange-rates "orb is a number [1:25]" [orb]
+  (let [other-orbs (sort (into (range 1 orb) (range (+ orb 1) 26)))]
+    (doseq [other other-orbs]
+      (pprint other)
+      (spit (str "resources/public/data/want-" orb ".txt") (get-quartiles orb other) :append true)
+      (spit (str "resources/public/data/have-" orb ".txt") (get-quartiles other orb) :append true))))
+(get-all-exchange-rates 4)
+(into [] (get-ratios (get-rates "Talisman" 17 4)))
+(quartile (into [] (get-ratios (get-rates "Talisman" 17 4))))
+(get-all-exchange-rates 4)
+(sort (into (range 1 orb) (range (+ orb 1) 26)))
+(sort (into (range 1 4) (range (+ 4 1) 26)))
+(defn get-quartiles [have want]
+  (quartile (get-ratios (get-rates "Talisman" want have))))
+(get-all-exchange-rates 4)
+(defn get-all-exchange-rates "orb is a number [1:25]" [orb]
+  (let [other-orbs (sort (into (range 1 orb) (range (+ orb 1) 26)))]
+    (doseq [other other-orbs]
+      (pprint (str other " want chaos")
+      (spit (str "resources/public/data/want-" orb ".txt") (get-quartiles orb other) :append true)
+      (pprint (str " have chaos")
+      (spit (str "resources/public/data/have-" orb ".txt") (get-quartiles other orb) :append true))))
+)
+(get-all-exchange-rates 4)
+(defn get-all-exchange-rates "orb is a number [1:25]" [orb]
+  (let [other-orbs (sort (into (range 1 orb) (range (+ orb 1) 26)))]
+    (doseq [other other-orbs]
+      (pprint (str other " want chaos"))
+      (spit (str "resources/public/data/want-" orb ".txt") (get-quartiles orb other) :append true)
+      (pprint (str " have chaos")
+      (spit (str "resources/public/data/have-" orb ".txt") (get-quartiles other orb) :append true)))))
+(get-all-exchange-rates 4)
+(defn get-all-exchange-rates "orb is a number [1:25]" [orb]
+  (let [other-orbs (sort (into (range 1 orb) (range (+ orb 1) 26)))]
+    (doseq [other other-orbs]
+      (pprint (str other " want chaos"))
+      (spit (str "resources/public/data/want-" orb ".txt") (get-quartiles orb other) :append true)
+      (pprint " have chaos")
+      (spit (str "resources/public/data/have-" orb ".txt") (get-quartiles other orb) :append true))))
+(get-all-exchange-rates 4)
+(defn get-all-exchange-rates "orb is a number [1:25]" [orb]
+  (let [other-orbs (sort (into (range 1 orb) (range (+ orb 1) 26)))]
+    (doseq [other other-orbs]
+      (pprint other)
+      (spit (str "resources/public/data/want-" orb ".txt") (get-quartiles orb other) :append true)
+      (pprint " want chaos")
+      (spit (str "resources/public/data/have-" orb ".txt") (get-quartiles other orb) :append true)
+      (pprint " have chaos"))))
+(get-all-exchange-rates 4)
+(get-quartiles 17 4)
+(get-ratios (get-rates "Talisman" 17 4))
+(quartile (get-ratios (get-rates "Talisman" 17 4)))
+(get-quartiles 17 4)
+(quartile (get-ratios (get-rates "Talisman" 4 17)))
+(get-ratios (get-rates "Talisman" 4 17))
+(get-rates "Talisman" 4 17)
+(get-ratios (get-rates "Talisman" 4 17))
+(first (get-ratios (get-rates "Talisman" 4 17)))
+(median (filterV (fn [i] (<i med)) (into [] (get-ratios (get-rates "Talisman" 4 17)))))
+(median (filterv (fn [i] (<i med)) (into [] (get-ratios (get-rates "Talisman" 4 17)))))
+(median (filterv (fn [i] (< i med)) (into [] (get-ratios (get-rates "Talisman" 4 17)))))
+(median (filterv (fn [i] (< i 400)) (into [] (get-ratios (get-rates "Talisman" 4 17)))))
+(median (get-ratios (get-rates "Talisman" 4 17)))
+(median (filterv (fn [i] (< i 390)) (into [] (get-ratios (get-rates "Talisman" 4 17)))))
+(median (filterv (fn [i] (< i 400)) (into [] (get-ratios (get-rates "Talisman" 4 17)))))
+(median (filterv (fn [i] (> i 400)) (into [] (get-ratios (get-rates "Talisman" 4 17)))))
+(defn median "sort n first" [n]
+    (if (even? (count n))
+      (mean (subvec n (- (/ (count n) 2) 1) (+ (/ (count n) 2) 1))) 
+      (nth n (Math/floor (/ (count n) 2)))))
+(median (into [] (get-ratios (get-rates "Talisman" 4 17))))
+(median (into [] (take 4 (get-ratios (get-rates "Talisman" 4 17)))))
+(get-all-exchange-rates 4)
+(get-ratios (get-rates "Talisman" 4 18))
+(get-ratios (get-rates "Talisman" 18 4))
+(quartile [100 200])
+(defn quartile "min, 1st, median, 3rd, max"  [vals]
+  (if (< (count vals) 2)
+    [0 0 0 0 0]
+    (let [svals (into [] (sort vals)) med (median svals)]
+      [(first svals)
+       (median (filterv (fn [i] (< i med)) svals))
+       med
+       (median (filterv (fn [i] (> i med)) svals))
+       (last svals)])))
+(get-all-exchange-rates 4)
+(get-all-exchange-rates 6)
+(get-ratios (get-rates "Talisman" 15 6))
+(get-ratios (get-rates "Talisman" 6 15))
+(median (get-ratios (get-rates "Talisman" 15 6)))
+(median (get-ratios (get-rates "Talisman" 6 15)))
+(count (get-ratios (get-rates "Talisman" 6 15)))
+(median (into [] (get-ratios (get-rates "Talisman" 6 15))))
+(median (into [] (get-ratios (get-rates "Talisman" 15 6))))
+(defn get-all-exchange-rates "orb is a number [1:25]" [orb]
+  (let [other-orbs (sort (into (range 1 orb) (range (+ orb 1) 26)))]
+    (doseq [other other-orbs]
+      (pprint other)
+      (spit (str "resources/public/data/want-" orb ".txt") (get-quartiles orb other) :append true)
+      (pprint " want ex")
+      (spit (str "resources/public/data/have-" orb ".txt") (get-quartiles other orb) :append true)
+      (pprint " have ex"))))
+quartile
+(source quartile)
+(defn quartile "min, 1st, median, 3rd, max"  [vals]
+  (if (< (count vals) 2)
+    [0 0 0 0 0]
+    (let [svals (into [] (sort vals)) med (median svals)]
+      [(first svals)
+       (median (filterv (fn [i] (< i med)) svals))
+       med
+       (median (filterv (fn [i] (> i med)) svals))
+       (last svals)])))
+(get-all-exchange-rates 6)
+(median (into [] (get-ratios (get-rates "Talisman" 15 6))))
+(quartile (get-ratios (get-rates "Talisman" 15 6))))
+(quartile (get-ratios (get-rates "Talisman" 15 6)))
+(get-quartiles 15 6)
+(get-ratios (get-rates "Talisman" 15 6))
+(median (into [] (get-ratios (get-rates "Talisman" 15 6)))
+)
+(double (median (into [] (get-ratios (get-rates "Talisman" 15 6)))))
+(get-quartiles 15 6)
+(quartile (get-ratios (get-rates "Talisman" 15 6)))
+(defn get-quartiles [want have]
+  (quartile (get-ratios (get-rates "Talisman" want have))))
+(defn quartile "min, 1st, median, 3rd, max"  [vals]
+  (if (< (count vals) 2)
+    [0 0 0 0 0]
+    (let [svals (into [] (sort vals)) med (median svals)]
+      [(first svals)
+       (median (filterv (fn [i] (< i med)) svals))
+       med
+       (median (filterv (fn [i] (> i med)) svals))
+       (last svals)])))
+(defn mean [n]
+  (/ (reduce + n) (count n)))
+(defn median "sort n first" [n]
+    (if (even? (count n))
+      (mean (subvec n (- (/ (count n) 2) 1) (+ (/ (count n) 2) 1))) 
+      (nth n (Math/floor (/ (count n) 2)))))
+(quartile (get-ratios (get-rates "Talisman" 15 6)))
+(get-quartiles 15 6)
+(get-all-exchange-rates 6)
+(get-quartiles 15 6)
+(defn get-all-exchange-rates "orb is a number [1:25]" [orb]
+  (let [other-orbs (sort (into (range 1 orb) (range (+ orb 1) 26)))]
+    (doseq [other other-orbs]
+      (pprint other)
+      (spit (str "resources/public/data/want-" orb ".txt") (get-quartiles orb other) :append true)
+      (pprint " want ex")
+      (spit (str "resources/public/data/have-" orb ".txt") (get-quartiles other orb) :append true)
+      (pprint " have ex"))))
+(get-all-exchange-rates 6)
+(quartile (get-ratios (get-rates "Talisman" 6 15)))
+(get-ratios (get-rates "Talisman" 6 15))
+(into [] (sort (get-ratios (get-rates "Talisman" 6 15))))
+(first (into [] (sort (get-ratios (get-rates "Talisman" 6 15)))))
+(median (into [] (sort (get-ratios (get-rates "Talisman" 6 15)))))
+(median (filterv (fn [i] (< i 6)) (into [] (sort (get-ratios (get-rates "Talisman" 6 15))))))
+.
+(defn quartile "min, 1st, median, 3rd, max"  [vals]
+  (if (< (count vals) 2)
+    [0 0 0 0 0]
+    (let [svals (into [] (sort vals)) med (median svals)]
+      [(first svals)
+       (median (filterv (fn [i] (<= i med)) svals))
+       med
+       (median (filterv (fn [i] (>= i med)) svals))
+       (last svals)])))
+(mean [1])
+(mean [15])
+(mean [15 1])
+(defn quartile "min, 1st, median, 3rd, max"  [vals]
+  (if (< (count vals) 2)
+    [0 0 0 0 0]
+    (let [svals (into [] (sort vals)) med (median svals)]
+      [(first svals)
+       (mean (subvec svals (median (take (first med) svals))))
+       (mean (subvec svals med))
+       (mean (subvec svals (median (nthrest svals (first med)))))
+       (last svals)])))
+(get-all-exchange-rates 6)
+((into [] (sort (get-ratios (get-rates "Talisman" 1 6))))))
+(into [] (sort (get-ratios (get-rates "Talisman" 1 6)))))
+(into [] (sort (get-ratios (get-rates "Talisman" 1 6))))
+(median (into [] (sort (get-ratios (get-rates "Talisman" 1 6)))))
+(defn median "sort n first" [n]
+    (if (even? (count n))
+      [(- (/ (count n) 2) 1) (+ (/ (count n) 2) 1)]
+      [(Math/floor (/ (count n) 2))]))
+(get-all-exchange-rates 6)
+(median (into [] (sort (get-ratios (get-rates "Talisman" 1 6)))))
+(first (into [] (sort (get-ratios (get-rates "Talisman" 1 6)))))
+(let [svals (into [] (sort (get-ratios (get-rates "Talisman" 1 6)))))]
+(let [svals (into [] (sort (get-ratios (get-rates "Talisman" 1 6))))]
+(subvec svals (median (take 8 svals))))
+(defn median "sort n first" [n]
+    (if (even? (count n))
+      [(- (/ (count n) 2) 1) (/ (count n) 2)]
+      [(Math/floor (/ (count n) 2))]))
+(median (into [] (sort (get-ratios (get-rates "Talisman" 1 6)))))
+(mean (median (into [] (sort (get-ratios (get-rates "Talisman" 1 6))))))
+(let [svals (into [] (sort (get-ratios (get-rates "Talisman" 1 6))))]
+(median (take 8 svals)))
+(let [svals (into [] (sort (get-ratios (get-rates "Talisman" 1 6))))]
+(median (take 9 svals)))
+(let [svals (into [] (sort (get-ratios (get-rates "Talisman" 1 6))))]
+(subvec svals (median (take 9 svals))))
+(subvec svals (first (median (take 9 svals)))))
+(let [svals (into [] (sort (get-ratios (get-rates "Talisman" 1 6))))]
+(subvec svals (first (median (take 9 svals)))))
+(let [svals (into [] (sort (get-ratios (get-rates "Talisman" 1 6))))]
+(mean (map nth svals (median (take 9 svals)))))
+(let [svals (into [] (sort (get-ratios (get-rates "Talisman" 1 6))))]
+(median (take 9 svals))))
+(defn median "sort n first" [n]
+    (if (even? (count n))
+      [(- (/ (count n) 2) 1) (/ (count n) 2)]
+      [(Integer (Math/floor (/ (count n) 2)))]))
+(defn median "sort n first" [n]
+    (if (even? (count n))
+      [(- (/ (count n) 2) 1) (/ (count n) 2)]
+      [(int (Math/floor (/ (count n) 2)))]))
+(let [svals (into [] (sort (get-ratios (get-rates "Talisman" 1 6))))]
+(mean (map nth svals (median (take 9 svals)))))
+(defn quartile "min, 1st, median, 3rd, max"  [vals]
+  (if (< (count vals) 2)
+    [0 0 0 0 0]
+    (let [svals (into [] (sort vals)) med (median svals)]
+      [(first svals)
+       (mean (map (partial nth svals) (median (take (+ (first med) 1) svals))))
+       (mean (subvec svals med))
+       (mean (map (partial nth svals) (median (nthrest svals (+ (first med) 1)))))
+       (last svals)])))
+(let [svals (into [] (sort (get-ratios (get-rates "Talisman" 1 6))))]
+(mean (map (partial nth svals) (median (take 9 svals)))))
+(get-all-exchange-rates 6)
+(defn median "sort n first" [n]
+    (if (even? (count n))
+      [(- (/ (count n) 2) 1) (/ (count n) 2)]
+      [(int (Math/floor (/ (count n) 2)))]))
+(get-all-exchange-rates 6)
+(let [svals (into [] (sort (get-ratios (get-rates "Talisman" 1 6))))]
+(subvec svals [8 9])
+)
+(defn quartile "min, 1st, median, 3rd, max"  [vals]
+  (if (< (count vals) 2)
+    [0 0 0 0 0]
+    (let [svals (into [] (sort vals)) med (median svals)]
+      [(first svals)
+       (mean (map (partial nth svals) (median (take (+ (first med) 1) svals))))
+       (mean (map (partial nth svals) med))
+       (mean (map (partial nth svals) (median (nthrest svals (+ (first med) 1)))))
+       (last svals)])))
+(get-all-exchange-rates 6)
+(doseq [orb (range 1 26)]
+(get-all-exchange-rates orb))
+(in-ns currency-ticker)
+(in-ns 'currency-ticker)
+(daily-pull "Talisman")
+(compile)
+(exit)
+(System/getProperty "user.dir")
+(ns)
+(median [1 1 1 2 3 4 5])
+(require [currency-ticker :as ct])
+(require ['currency-ticker :as ct])
+(exit)
+(require ['currency-ticker :as ct])
+(require 'currency-ticker])
+(require 'currency-ticker)
+(require 'currency-ticker.core)
+(exit)
+(require currency-ticker.core)
+(require 'currency-ticker.core)
+(require currency-ticker)
+(exit)
+(load-file src/clj/currency_ticker/core.clj
+(load-file src/clj/currency_ticker/core.clj)
+(load-file 'src/clj/currency_ticker/core.clj)
+(load-file "src/clj/currency_ticker/core.clj")
+cd
+(load-file "src/clj/currency-ticker/core.clj")
+(load-file "src/clj/currency_ticker/core.clj")
+(use 'currency-ticker.core)
+(daily-pull "Talisman")
+(process-data "Talisman")
+(slurp "resources/public/data/Talisman/want-1.txt")
+(clojure.string/split (slurp "resources/public/data/Talisman/want-1.txt"))
+(clojure.string/split (slurp "resources/public/data/Talisman/want-1.txt") #"\n")
+(map read-string (clojure.string/split (slurp "resources/public/data/Talisman/want-1.txt") #"\n"))
+(clojure.string/split (slurp "resources/public/data/Talisman/want-1.txt") #"\n")
+(use currency-ticker.core :reload)
+(use 'currency-ticker.core :reload)
+(process-data "Talisman")
+(map load-string (clojure.string/split (slurp "resources/public/data/Talisman/want-1.txt") #"\n"))
+(use 'currency-ticker.core :reload)
+(doseq [orb (range 1 26)] (spit (str "resources/public/data/Talisman/want-" orb ".txt") "\n" :append true))
+(doseq [orb (range 1 26)] (spit (str "resources/public/data/Talisman/have-" orb ".txt") "\n" :append true))
+(doseq [orb (range 1 26)] (spit (str "resources/public/data/Talisman/have-" orb ".txt") "["))
+(doseq [orb (range 1 26)] (spit (str "resources/public/data/Talisman/want-" orb ".txt") "["))
+(daily-pull Talisman)
+(daily-pull "Talisman")
+(load-file "src/clj/currency_ticker/core.clj")
+(use 'currency-ticker.core)
+(use 'currency-ticker.core :reload)
+(daily-pull "Talisman")
+(scraper/get-rates "Talisman" 2 1)
+(load-file "src/clj/currency_ticker/scraper.clj")
+(use 'currency-ticker.scraper)
+(get-rates "Talisman" 2 1)
+(get-rates "Talisman" 1 2)
+(get-ratios (get-rates "Talisman" 1 2))
+(get-ratios (get-rates "Talisman" 2 1))
+(get-ratios (get-rates "Talisman" 3 2))
+(get-ratios (get-rates "Talisman" 4 2))
+(get-ratios (get-rates "Talisman" 2 3))
+(get-ratios (get-rates "Talisman" 2 4))
+(get-ratios (get-rates "Talisman" 1 2))
+(get-ratios (get-rates "Talisman" 1 3))
+(get-ratios (get-rates "Talisman" 1 4))
+(use 'currency-ticker.core :reload)
+(daily-pull "Talisman")
+(doseq [orb (range 1 26)]
+(doseq [other (into (range 1 orb) (range (+ orb 1) 26))]
+(println (str orb " " other))
+(get-quartiles orb other)
+(get-quartiles other orb)
+)
+(get-ratios (get-rates "Talisman" 1 14))
+(get-ratios (get-rates "Talisman" 1 13))
+(get-ratios (get-rates "Talisman" 14 1))
+(get-rates "Talisman" 14 1)
+(use 'currency-ticker.scraper :reload)
+(get-ratios (get-rates "Talisman" 14 1))
+(map (fn [s] (read-string (re-find #"\d+" (re-find #" .*" s)))) (get-rates "Talisman" 14 1))
+(map (fn [s] (read-string (re-find #"\d+" s))) (get-rates "Talisman" 14 1))
+(get-ratios '("480 ? 25" "1 ? 3" "10 ? 150" "1 ? 15" "1 ? 16" "1 ? 17" "1 ? 18" "1 ? 18" "1 ? 20" "1 ? 20" "1 ? 30" "0.5 ? 20"))
+(use 'currency-ticker.scraper :reload)
+(get-ratios '("480 ? 25" "1 ? 3" "10 ? 150" "1 ? 15" "1 ? 16" "1 ? 17" "1 ? 18" "1 ? 18" "1 ? 20" "1 ? 20" "1 ? 30" "0.5 ? 20"))
+(use 'currency-ticker.scraper :reload)
+(get-ratios '("480 ? 25" "1 ? 3" "10 ? 150" "1 ? 15" "1 ? 16" "1 ? 17" "1 ? 18" "1 ? 18" "1 ? 20" "1 ? 20" "1 ? 30" "0.5 ? 20"))
+(use 'currency-ticker.scraper :reload)
+(get-ratios '("480 ? 25" "1 ? 3" "10 ? 150" "1 ? 15" "1 ? 16" "1 ? 17" "1 ? 18" "1 ? 18" "1 ? 20" "1 ? 20" "1 ? 30" "0.5 ? 20"))
+(use 'currency-ticker.core :reload)
+(daily-pull "Talisman")
+(spit "resources/public/data/TEST" [[1 2 3 4][1 2 3 4]]\n[[2 3 4 5][2 3 4 5]]\n)
+(spit "resources/public/data/TEST" "[[1 2 3 4][1 2 3 4]]\n[[2 3 4 5][2 3 4 5]]\n")
+(spit "/resources/public/data/TEST" "[[1 2 3 4][1 2 3 4]]\n[[2 3 4 5][2 3 4 5]]\n")
+(spit "currency-ticker/resources/public/data/TEST" "[[1 2 3 4][1 2 3 4]]\n[[2 3 4 5][2 3 4 5]]\n")
+(spit "resources/public/data/TEST/want-test.txt" "[[1 2 3 4][1 2 3 4]]\n[[2 3 4 5][2 3 4 5]]\n")
+(doseq [times [1 2 3 4] (spit "resources/public/data/TEST/want-test.txt" "[[1 2 3 4][1 2 3 4]]\n[[2 3 4 5][2 3 4 5]]\n")
+(doseq [times [1 2 3 4] (spit "resources/public/data/TEST/want-test.txt" "["
+(spit "resources/public/data/TEST/want-test.txt" "[0 1 2 3 4][0 1 2 3 4][0 1 2 3 4]")
+(spit "resources/public/data/TEST/want-test.txt" "]\n")
+)
+(doseq [times [1 2 3 4] (spit "resources/public/data/TEST/want-test.txt" "[")
+(spit "resources/public/data/TEST/want-test.txt" "[0 1 2 3 4][0 1 2 3 4][0 1 2 3 4]")
+(spit "resources/public/data/TEST/want-test.txt" "]\n")
+)
+(doseq [times [1 2 3 4]] (spit "resources/public/data/TEST/want-test.txt" "[")
+(spit "resources/public/data/TEST/want-test.txt" "[0 1 2 3 4][0 1 2 3 4][0 1 2 3 4]")
+(spit "resources/public/data/TEST/want-test.txt" "]\n")
+)
+(doseq [times [1 2 3 4]] (spit "resources/public/data/TEST/want-test.txt" "[" :append true)
+(spit "resources/public/data/TEST/want-test.txt" "[0 1 2 3 4][0 1 2 3 4][0 1 2 3 4]" :append true)
+(spit "resources/public/data/TEST/want-test.txt" "]\n" :append true)
+)
+(use 'currency-ticker.core)
+(load-file src/clj/currency-ticker/core.clj)
+(load-file "src/clj/currency-ticker/core.clj")
+(load-file "src/clj/currency_ticker/core.clj")
+(use 'currency-ticker.core)
+(daily-pull "Talisman")
+(load-file "src/clj/currency_ticker/core.clj")
+(use 'currency-ticker.core)
+(use 'currency-ticker.core :reload)
+(daily-pull "Talisman")
+(use 'currency-ticker.core :reload)
+(daily-pull "Talisman")
+(use 'currency-ticker.core :reload)
+(make-test-data)
+(use 'currency-ticker.core :reload)
+(make-test-data)
+(use 'currency-ticker.core :reload)
+(make-test-data)
+(use 'currency-ticker.core :reload)
+(make-test-data)
+(test-run)
+(process-data "TEST")
+(slurp (str "resources/public/data/TEST/want-1.txt"))
+(take-last 2 (map read-string (clojure.string/split (slurp (str "resources/public/data/TEST/want-1.txt")) #"\n")))
+(map read-string (clojure.string/split (slurp (str "resources/public/data/TEST/want-1.txt")) #"\n"))
+(clojure.string/split (slurp (str "resources/public/data/TEST/want-1.txt")) #"\n")
+(use 'currency-ticker.core :reload)
+(make-test-data)
+(use 'currency-ticker.core :reload)
+(make-test-data)
+(test-run)
+(take-last 2 (map read-string (clojure.string/split (slurp (str "resources/public/data/TEST/want-1.txt")) #"\n")))
+(take-last 2 (map read-string (clojure.string/split (slurp (str "resources/public/data/TEST/have-1.txt")) #"\n")))
+(let [[y t] (take-last 2 (map read-string (clojure.string/split (slurp (str "resources/public/data/TEST/have-1.txt")) #"\n")))]
+(do (println y)
+(println t)))
+(let [league "TEST" orb 1]
+(let [[want-yesterday want-today] (take-last 2 (map read-string (clojure.string/split (slurp (str "resources/public/data/" league "/want-" orb ".txt")) #"\n") ))
+          [have-yesterday have-today] (take-last 2 (map read-string (clojure.string/split (slurp (str "resources/public/data/" league "/have-" orb ".txt")) #"\n") ))]
+(mapv #([(second %2) (- (second %2) (second %1)) (second %4) (- (second %4) (second %3)) ]) want-yesterday want-today have-yesterday have-today)
+)
+(use 'currency-ticker.core :reload)
+(test-run)
+(into {} '(:1 [1 2 3 4 5] :2 [1 2 3 4 5] :3 [1 2 3 4 5]))
+(into {} '([:1 [1 2 3 4 5] :2 [1 2 3 4 5] :3 [1 2 3 4 5]]))
+(into {} '([:1 [1 2 3 4 5]] [:2 [1 2 3 4 5]] [:3 [1 2 3 4 5]]))
+(map (fn [orb] 
+         (let [data (read-string (slurp (str "resources/public/data/" league "/" orb "-processed.txt")))]
+           [(keyword orb) data]
+           ) 
+       (range 1 26))
+)
+(map (fn [orb] 
+         (let [data (read-string (slurp (str "resources/public/data/Talisman/" orb "-processed.txt")))]
+           [(keyword orb) data]
+)       (range 1 26))
+(map (fn [orb] 
+         (let [data (read-string (slurp (str "resources/public/data/Talisman/" orb "-processed.txt")))]
+))       (range 1 26))
+(map (fn [orb] 
+         (let [data (read-string (slurp (str "resources/public/data/TEST/" orb "-processed.txt")))]
+))       (range 1 26))
+(read-string (slurp (str "resources/public/data/TEST/" orb "-processed.txt"))
+)
+(read-string (slurp (str "resources/public/data/TEST/1-processed.txt")))
+(map (fn [orb] 
+         (let [data (read-string (slurp (str "resources/public/data/TEST/" orb "-processed.txt")))]
+           [(keyword orb) data]))
+       (range 1 26))
+(map (fn [orb] 
+         (let [data (read-string (slurp (str "resources/public/data/TEST/" orb "-processed.txt")))]
+           [(keyword (str orb)) data]))
+       (range 1 26))
+(map (fn [orb] 
+         (let [data (read-string (slurp (str "resources/public/data/TEST/" orb "-processed.txt")))]
+           [(keyword (str orb)) data]))
+(into {} (map (fn [orb] 
+         (let [data (read-string (slurp (str "resources/public/data/TEST/" orb "-processed.txt")))]
+           [(keyword (str orb)) data]))
+       (range 1 26)))
+(exit)
+(use currency_ticker.core.clj)
+(use currency-ticker.core)
+(use 'currency-ticker.core)
+(daily-pull)
+(daily-pull "Talisman")
+(daily-pull "Standard")
+(daily-pull "Hardcore")
+(daily-pull "Talisman+Hardcore")
+(daily-pull "Hardcore+Talisman")
