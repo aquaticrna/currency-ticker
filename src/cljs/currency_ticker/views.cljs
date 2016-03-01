@@ -10,16 +10,38 @@
             (mapv (fn [[id value]] {:label value :id id}) @currencies))
 
       "League:"
-      (conj [com/single-dropdown :filter-box? true :width "200px" :model nil :placeholder "Talisman" :on-change #(re-frame/dispatch [:league %1])
+      (conj [com/single-dropdown :filter-box? true :width "200px" :model :T :on-change #(re-frame/dispatch [:league %1])
              :choices]
             (mapv (fn [[id value]] {:label value :id id}) @leagues))
       ]])
 
+(defn currency-display [data currencies reference]
+  [:div
+   (doall (map (partial (fn [currencies index entry]
+                          (let [cur-key (keyword (str index))]
+                            [:div {:key index}
+                             [:div {:key (str index (cur-key currencies))} (get currencies cur-key)]
+                             [:div {:key (str index "top values")} (str (first entry) " " (second entry))]
+                             [:img {:key (str index "img" 1) :src (str "currency_images/" (clojure.string/replace (cur-key currencies) #" " "_") ".png") :alt (clojure.string/replace (cur-key currencies) #" " "_") :width "25px" :height "25px"}]
+                             [:div {:key (str index "arrow right")} " ------>  1 "]
+                             [:div {:key (str index "arrow right 2")} (str "1 <------ ")]
+                             [:div {:key (str index "values")} (str (nth entry 3) " " (nth entry 2) " ")]
+                             [:img {:key (str index "img" 4) :src (str "currency_images/" (clojure.string/replace (@reference currencies) #" " "_") ".png") :alt (clojure.string/replace (@reference currencies) #" " "_") :width "25px" :height "25px"}]
+                             [:div {:key (str index "refcur 2")} (@reference currencies)] ;" Chaos")];
+                             ]))
+                        (dissoc @currencies @reference) (sort (reduce conj (range 1 (js/parseInt (name @reference))) (range (+ (js/parseInt (name @reference)) 1) 26))))
+                        @data))])
+
+
 ;(defn rate-display [
 
 (defn main-panel []
-  (let [currencies (re-frame/subscribe [:currency]) leagues (re-frame/subscribe [:leagues])]
-    (dropdown-menus currencies leagues)
+  (let [currencies (re-frame/subscribe [:currency]) leagues (re-frame/subscribe [:leagues]) rates (re-frame/subscribe [:rates]) reference (re-frame/subscribe [:reference])]
+    (println (sort (reduce conj (range 1 (js/parseInt (name @reference))) (range (+ (js/parseInt (name @reference)) 1) 26))))
+    [:div
+     (dropdown-menus currencies leagues)
+     (currency-display rates currencies reference)
+     ]
       ))
 
 ;[:img {:src "currency_images/armourer's_scrap.png" :alt "armourer's scrap" :width "25px" :height "25px"}]

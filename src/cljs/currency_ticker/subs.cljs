@@ -8,12 +8,9 @@
     (reaction (:currency @db))))
 
 (re-frame/register-sub
-  :rates
-  (fn [_ _]))
-
-(re-frame/register-sub
   :league
-  (fn [_ _]))
+  (fn [db _]
+    (reaction (:league @db))))
 
 (re-frame/register-sub
   :reference
@@ -24,3 +21,15 @@
   :leagues
   (fn [db _]
     (reaction (:leagues @db))))
+
+(re-frame/register-sub
+  :rates
+  (fn [db _]
+    (reaction (:rates @db))))
+
+;(re-frame/register-sub
+;  :rates
+;  (fn [db _]
+;    (let [league (:league @db) refrence (:reference @db)]
+;
+;      ))

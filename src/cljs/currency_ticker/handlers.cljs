@@ -8,10 +8,6 @@
    db/default-db))
 
 (re-frame/register-handler
-  :rates
-  (fn [_ _]))
-
-(re-frame/register-handler
   :league
   (fn [db [_ league_key]]
     (assoc db :league (league_key (:leagues db)))))

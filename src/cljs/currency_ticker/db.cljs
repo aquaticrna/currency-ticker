@@ -1,5 +1,4 @@
 (ns currency-ticker.db)
-  ;(:require [cljs.reader :as reader]))
 
 ;(defn get-ratios "needs to return a map, the result of the map call should look like '([:key []] [:key []])"[league]
 ;  (map (fn [orb]
@@ -35,7 +34,10 @@
               :24 "Mirror of Kalandra",
               :25 "Eternal Orb"},
    :leagues {:T "Talisman", :TH "Talisman+Hardcore", :S "Standard", :H "Hardcore"},
-   ;:rates (into {} (get-ratios "Talisman"))
+   :rates '([10 -2 10 -2],[1.25 -.166 1.25 -.166],[2.25 -.25 2.25 -.25],[.33 -.08 .33 -.08],[.14 0 .14 0],[11 -1.5 11 1.5],
+           [5.336206896551724 -0.6637931034482758 5.336206896551724 -0.6637931034482758],[3 -1 3 -1],[2 -.05 2 -.05],[1 0 1 0],[1.16 .5 1.16 .5],
+           [.57 .07 .57 .07],[.66 0 .66 0],[.04 0 .04 0],[.5 -.04 .5 -.04],[150 30 150 30],[80 0 80 0],[35 4 35 4],[5 -10 5 -10],[4.75 -.25 4.75 -.25],
+           [40 0 40 0],[30 0 30 0],[0 0 0 0],[0 0 0 0]),
    :league "Talisman",
    :reference :4
    })
