@@ -4,7 +4,10 @@
                  [reagent "0.5.1"]
                  [re-frame "0.6.0"]
                  [enlive "1.1.6"]
-			 [re-com "0.8.0"]]
+			 [re-com "0.8.0"]
+			 [com.taoensso/sente "1.7.0"]
+			 [http-kit "2.1.19"]
+			 [compojure "1.4.0"]]
 
   :min-lein-version "2.5.3"
 

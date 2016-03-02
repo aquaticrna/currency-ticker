@@ -29,7 +29,8 @@
                              [:img {:key (str index "img" 4) :src (str "currency_images/" (clojure.string/replace (@reference currencies) #" " "_") ".png") :alt (clojure.string/replace (@reference currencies) #" " "_") :width "25px" :height "25px"}]
                              [:div {:key (str index "refcur 2")} (@reference currencies)] ;" Chaos")];
                              ]))
-                        (dissoc @currencies @reference) (sort (reduce conj (range 1 (js/parseInt (name @reference))) (range (+ (js/parseInt (name @reference)) 1) 26))))
+                        @currencies)
+                        (sort (reduce conj (range 1 (js/parseInt (name @reference))) (range (+ (js/parseInt (name @reference)) 1) 26)))
                         @data))])
 
 
@@ -37,7 +38,6 @@
 
 (defn main-panel []
   (let [currencies (re-frame/subscribe [:currency]) leagues (re-frame/subscribe [:leagues]) rates (re-frame/subscribe [:rates]) reference (re-frame/subscribe [:reference])]
-    (println (sort (reduce conj (range 1 (js/parseInt (name @reference))) (range (+ (js/parseInt (name @reference)) 1) 26))))
     [:div
      (dropdown-menus currencies leagues)
      (currency-display rates currencies reference)

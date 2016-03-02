@@ -5,6 +5,7 @@
               [currency-ticker.subs]
               [currency-ticker.views :as views]
               [currency-ticker.config :as config]))
+              ;[org.httpkit.client :as http]))
 
 (enable-console-print!)
 
